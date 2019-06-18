@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: client
+
+eureka:
+  client:
+  service-url:
+    defaultZone: http://localhost:8761/eureka/
+    healthcheck: true
+
+backserver:
+  ribbon:
+    eureka:
+      enabled: true
+    #listOfServers: localhost:8081,localhost:8082,localhost:8083,localhost8084
+    ServerListRefreshInterval: 2000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, info, health
+  metrics:
+    export:
+      influx:
+        uri: localhost:8088

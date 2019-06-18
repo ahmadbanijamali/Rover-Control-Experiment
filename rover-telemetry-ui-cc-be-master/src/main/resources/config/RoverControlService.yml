@@ -1,0 +1,11 @@
+service:
+  greeting: Hello from service 1
+
+  Hono device ID: rover6
+
+  AMQP host: 23.97.155.113
+  AMQP port: 5672
+  Hono tenant ID: rover
+  Hono user: consumer@HONO
+  #Hono password: verysecret
+  #server port: 8081
