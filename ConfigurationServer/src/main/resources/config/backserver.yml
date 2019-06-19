@@ -1,0 +1,35 @@
+Service:
+  greeting: Hello from backserver
+  influxdb.url: =http://40.115.61.255:8086
+  influxdb.db.name: rover
+  hono.device.ids: rover1,rover2,rover3,rover4
+
+  qpid.router.host: 23.97.155.113
+  qpid.router.port: 5672
+  hono.tenant.id: rover
+  hono.user: consumer@HONO
+  hono.password: verysecret
+  hono.trustedStorePath: src/main/resources/trusted-certs.pem
+  hono.reconnectAttempts: 100
+
+  #keycloak.auth-server-url: http://localhost:8080/auth/
+  #keycloak.credentials.secret: be2da38c-ea40-4cbb-999b-718286899291
+
+  #keycloak.realm: secured-realm
+  #keycloak.resource: secured-application
+  #keycloak.public-client: false
+  #keycloak.autodetect-bearer-only: true
+  #keycloak.principal-attribute: preferred_username
+
+  ## Fixes the bug in SecurityConfig
+  #spring.main.allow-bean-definition-overriding: true
+
+  spring.profiles.active: native
+
+  spring.application.name: backserver
+  #eureka.instance.instance-id: ${spring.application.name}:${random.value}
+  eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+  server.port: ${PORT:0}
+  eureka.instance.instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${random.int[1,999999]}
+
+  management.endpoints.web.exposure.include: hystrix.stream, info, health
