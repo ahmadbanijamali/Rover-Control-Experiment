@@ -6,7 +6,7 @@ zuul:
     rover-telemetry-ui-cc-be-master:
       path: /server/**
       serviceId: backserver
-    rover-telemetry-ui-cc-fe-master:
+    TelemetryService:
       path: /client/**
       serviceId: Client
 
